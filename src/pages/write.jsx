@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/button/button";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -21,7 +21,7 @@ const Write = () => {
     if (e.target.value == "")
       return setDataPost({ ...dataPost, [e.target.name]: "" });
     if (e.target.name == "postPic") {
-      setFile(e.target.files[0]);
+      // setFile(e.target.files[0]);
       return setDataPost({
         ...dataPost,
         [e.target.name]: e.target.files[0].name,
@@ -49,23 +49,23 @@ const Write = () => {
     getPost();
   }, [params.post_id]);
   //HANDLE UPLOAD FILE
-  const [file, setFile] = useState("");
-  const fileRef = useRef();
-  const uploadFile = async (e) => {
-    const upload = new FormData();
-    upload.append("file", e);
-    try {
-      if (file) {
-        const response = await axios.post(
-          "https://api-fun-blog-deni-pamungkas.vercel.app/file/uploadFile",
-          upload
-        );
-        return response;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const [file, setFile] = useState("");
+  // const fileRef = useRef();
+  // const uploadFile = async (e) => {
+  //   const upload = new FormData();
+  //   upload.append("file", e);
+  //   try {
+  //     if (file) {
+  //       const response = await axios.post(
+  //         "https://api-fun-blog-deni-pamungkas.vercel.app/file/uploadFile",
+  //         upload
+  //       );
+  //       return response;
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   //HANDLE SUBMIT FORM DAN HIT API
   const handleSubmitPost = async (e) => {
@@ -78,7 +78,7 @@ const Write = () => {
           message: "content tidak boleh kosong",
         });
       //HIT API
-      uploadFile(file);
+      // uploadFile(file);
       if (e.nativeEvent.submitter.name == "save") {
         if (params.post_id != "0") {
           await axios.patch(
@@ -151,14 +151,14 @@ const Write = () => {
           onChange={handleChange}
           required
         />
-        <input
+        {/* <input
           ref={fileRef}
           name="postPic"
           type="file"
           className="w-full h-content bg-white px-3 outline-none dark:bg-gray-300"
           onChange={handleChange}
-        />
-        {fileRef.current?.files[0] !== undefined ? (
+        /> */}
+        {/* {fileRef.current?.files[0] !== undefined ? (
           <img
             src={URL.createObjectURL(fileRef.current?.files[0])}
             alt="kosong"
@@ -175,7 +175,7 @@ const Write = () => {
           />
         ) : (
           ""
-        )}
+        )} */}
         <select
           value={dataPost?.category}
           name="category"

@@ -56,7 +56,7 @@ const Read = () => {
         Author - {moment(post?.createdAt).fromNow()} - {post?.category}
       </p>
       <h1 className="text-2xl font-bold mb-3">{post?.title}</h1>
-      {post?.postPic ? (
+      {/* {post?.postPic ? (
         <>
           <img
             src={
@@ -70,7 +70,7 @@ const Read = () => {
             description of image
           </p>
         </>
-      ) : null}
+      ) : null} */}
       <div dangerouslySetInnerHTML={{ __html: post?.content }} />
     </section>
   );
