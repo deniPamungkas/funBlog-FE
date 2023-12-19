@@ -63,14 +63,19 @@ const Navbar = () => {
             <li className="w-full h-14 flex items-center px-3 rounded-md">
               Categories
             </li>
-            <Link to={"/dashboard"}>
-              <li
-                className="w-full h-14 flex items-center px-3 rounded-md"
-                onClick={handleSide}
-              >
-                Dashboard
-              </li>
-            </Link>
+            {user ? (
+              <Link to={"/dashboard"}>
+                <li className="navlinkB flex items-center h-full cursor-pointer">
+                  Dashboard
+                </li>
+              </Link>
+            ) : (
+              <Link to={"/login"}>
+                <li className="navlinkB flex items-center h-full cursor-pointer">
+                  Dashboard
+                </li>
+              </Link>
+            )}
             {user ? (
               <Link to={"/write/0"}>
                 <li
