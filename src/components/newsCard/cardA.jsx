@@ -20,8 +20,12 @@ const CardA = ({ data }) => {
         id={data._id}
         onClick={handleCard}
       >
-        <p className="text-sm">Author</p>
-        <div className="text-md font-bold">{data.title}</div>
+        <p id={data._id} className="text-sm">
+          Author
+        </p>
+        <div id={data._id} className="text-md font-bold">
+          {data.title}
+        </div>
       </div>
     </div>
   );
