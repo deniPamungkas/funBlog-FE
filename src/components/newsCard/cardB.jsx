@@ -20,7 +20,10 @@ const CardB = ({ data }) => {
           Author - {moment(data.createdAt).fromNow()}
         </span>
         <div className="" id={data._id} onClick={handleCard}>
-          <h1 className="text-lg leading-6 md:text-xl lg:text-2xl h-14 lg:h-16 font-semibold overflow-hidden text-ellipsis">
+          <h1
+            id={data._id}
+            className="text-lg leading-6 md:text-xl lg:text-2xl h-14 lg:h-16 font-semibold overflow-hidden text-ellipsis cursor-pointer"
+          >
             {data.title}
           </h1>
         </div>
