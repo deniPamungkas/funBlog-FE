@@ -65,13 +65,13 @@ const Navbar = () => {
             </li>
             {user ? (
               <Link to={"/dashboard"}>
-                <li className="navlinkB flex items-center h-full cursor-pointer">
+                <li className="w-full h-14 flex items-center px-3 rounded-md">
                   Dashboard
                 </li>
               </Link>
             ) : (
               <Link to={"/login"}>
-                <li className="navlinkB flex items-center h-full cursor-pointer">
+                <li className="w-full h-14 flex items-center px-3 rounded-md">
                   Dashboard
                 </li>
               </Link>
